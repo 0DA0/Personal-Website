@@ -1,0 +1,67 @@
+<div class="projects-container">
+  <div class="grid-bg"></div>
+  
+  <section class="projects-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title terminal-prompt">projects.filter()</h2>
+        <p class="section-subtitle">
+          <span class="code-comment">// </span>
+          Geliştirdiğim projeler ve uygulamalar
+        </p>
+      </div>
+
+      <div class="filter-buttons">
+        <button 
+          class="filter-btn" 
+          [class.active]="selectedCategory === 'all'"
+          (click)="filterProjects('all')">
+          <span class="bracket">[</span> all <span class="bracket">]</span>
+        </button>
+        <button 
+          class="filter-btn" 
+          [class.active]="selectedCategory === 'backend'"
+          (click)="filterProjects('backend')">
+          <span class="bracket">[</span> backend <span class="bracket">]</span>
+        </button>
+        <button 
+          class="filter-btn" 
+          [class.active]="selectedCategory === 'fullstack'"
+          (click)="filterProjects('fullstack')">
+          <span class="bracket">[</span> fullstack <span class="bracket">]</span>
+        </button>
+      </div>
+
+      <div class="projects-grid" *ngIf="!loading">
+        <div class="project-card" *ngFor="let project of filteredProjects">
+          <div class="project-header">
+            <div class="project-category">
+              <span class="code-comment">// </span>{{ project.category }}
+            </div>
+            <div class="project-links">
+              <a [href]="project.github" target="_blank" class="project-link" *ngIf="project.github">
+                GitHub
+              </a>
+              <a [href]="project.demo" target="_blank" class="project-link" *ngIf="project.demo">
+                Demo
+              </a>
+            </div>
+          </div>
+          
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+          
+          <div class="project-tech">
+            <span class="tech-tag" *ngFor="let tech of project.technologies">
+              {{ tech }}
+            </span>
+          </div>
+          
+          <div class="project-featured" *ngIf="project.featured">
+            <span class="featured-badge">★ Featured</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
