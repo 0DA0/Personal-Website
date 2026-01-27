@@ -1,0 +1,32 @@
+<div class="contact-container">
+  <div class="grid-bg"></div>
+  <section class="contact-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title terminal-prompt">contact.send()</h2>
+        <p class="section-subtitle"><span class="code-comment">// </span>Benimle iletişime geçin</p>
+      </div>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+        <div class="form-group">
+          <label class="terminal-prompt">name</label>
+          <input type="text" formControlName="name" placeholder="Adınız">
+        </div>
+        <div class="form-group">
+          <label class="terminal-prompt">email</label>
+          <input type="email" formControlName="email" placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+          <label class="terminal-prompt">subject</label>
+          <input type="text" formControlName="subject" placeholder="Konu">
+        </div>
+        <div class="form-group">
+          <label class="terminal-prompt">message</label>
+          <textarea formControlName="message" rows="6" placeholder="Mesajınız..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-submit">Gönder</button>
+        <div *ngIf="success" class="alert success">Mesajınız gönderildi!</div>
+        <div *ngIf="error" class="alert error">{{ error }}</div>
+      </form>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,15 @@
+.contact-container { min-height: 100vh; padding-top: 100px; position: relative; }
+.contact-section { padding: 4rem 0; }
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-title { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; font-family: var(--font-mono); }
+.section-subtitle { font-size: 1.2rem; color: var(--text-secondary); }
+.contact-form { max-width: 600px; margin: 0 auto; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; color: var(--neon-green); font-family: var(--font-mono); }
+.form-group input, .form-group textarea { width: 100%; padding: 1rem; background: var(--bg-darker); border: 1px solid var(--dark-green); color: var(--text-secondary); font-family: var(--font-mono); }
+.form-group input:focus, .form-group textarea:focus { border-color: var(--neon-green); box-shadow: 0 0 10px rgba(0, 255, 65, 0.2); }
+.btn-submit { width: 100%; padding: 1rem; background: transparent; border: 2px solid var(--neon-green); color: var(--neon-green); font-size: 1.1rem; cursor: pointer; transition: all 0.3s; }
+.btn-submit:hover { background: var(--neon-green); color: var(--bg-black); box-shadow: 0 0 20px var(--neon-green); }
+.alert { margin-top: 1rem; padding: 1rem; text-align: center; }
+.alert.success { border: 1px solid var(--neon-green); color: var(--neon-green); }
+.alert.error { border: 1px solid var(--accent-red); color: var(--accent-red); }
