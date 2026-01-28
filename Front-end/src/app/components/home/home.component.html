@@ -1,0 +1,120 @@
+<div class="home-container">
+  <div class="grid-bg"></div>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-greeting terminal-prompt fade-in">
+          Merhaba, ben
+        </div>
+        
+        <h1 class="hero-name">
+          <span class="name-bracket">&lt;</span>
+          <span class="name-text">Your Name</span>
+          <span class="name-bracket">/&gt;</span>
+        </h1>
+        
+        <h2 class="hero-title">
+          <span class="typing-wrapper">
+            {{ typedText }}<span class="cursor">|</span>
+          </span>
+        </h2>
+        
+        <p class="hero-description">
+          <span class="code-comment">// </span>
+          Ölçeklenebilir backend sistemler ve RESTful API'ler geliştiriyorum.
+          <br>
+          <span class="code-comment">// </span>
+          Clean code, performans ve güvenlik odaklı çalışıyorum.
+        </p>
+        
+        <div class="hero-cta">
+          <button (click)="navigateToProjects()" class="btn btn-primary">
+            <span class="btn-icon">{'{'}</span>
+            Projelerime Göz At
+            <span class="btn-icon">{'}'}</span>
+          </button>
+          <button (click)="navigateToContact()" class="btn btn-secondary">
+            <span class="arrow">&gt;&gt;</span>
+            İletişime Geç
+          </button>
+        </div>
+        
+        <div class="hero-scroll">
+          <div class="scroll-indicator">
+            <span class="scroll-text">scroll_down</span>
+            <div class="scroll-line"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-dot red"></span>
+            <span class="code-dot yellow"></span>
+            <span class="code-dot green"></span>
+            <span class="code-title">~/server.js</span>
+          </div>
+          <div class="code-content">
+            <div class="code-line">
+              <span class="line-number">1</span>
+              <span class="keyword">const</span> express = <span class="function">require</span>(<span class="string">'express'</span>);
+            </div>
+            <div class="code-line">
+              <span class="line-number">2</span>
+              <span class="keyword">const</span> app = <span class="function">express</span>();
+            </div>
+            <div class="code-line">
+              <span class="line-number">3</span>
+              <span class="comment">// Building amazing APIs...</span>
+            </div>
+            <div class="code-line">
+              <span class="line-number">4</span>
+              <span class="keyword">app</span>.<span class="function">listen</span>(<span class="number">3000</span>, () => {
+            </div>
+            <div class="code-line">
+              <span class="line-number">5</span>
+              &nbsp;&nbsp;console.<span class="function">log</span>(<span class="string">'Server running'</span>);
+            </div>
+            <div class="code-line">
+              <span class="line-number">6</span>
+              });
+            </div>
+          </div>
+        </div>
+        
+        <div class="floating-elements">
+          <div class="float-item" style="animation-delay: 0s;">Node.js</div>
+          <div class="float-item" style="animation-delay: 0.5s;">Express</div>
+          <div class="float-item" style="animation-delay: 1s;">MongoDB</div>
+          <div class="float-item" style="animation-delay: 1.5s;">Docker</div>
+          <div class="float-item" style="animation-delay: 2s;">Redis</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Quick Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">6+</div>
+          <div class="stat-label">Projeler</div>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Teknolojiler</div>
+        </div>
+        <div class="stat-divider">|</div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Tutkulu</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

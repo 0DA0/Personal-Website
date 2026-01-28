@@ -1,0 +1,6 @@
+.footer { background: var(--bg-darker); border-top: 1px solid var(--dark-green); padding: 3rem 0; margin-top: 4rem; }
+.footer-content { text-align: center; }
+.footer-text { color: var(--text-secondary); margin-bottom: 0.5rem; font-family: var(--font-mono); }
+.footer-copyright { color: var(--text-dim); font-size: 0.9rem; font-family: var(--font-mono); }
+.code-comment { color: var(--text-dim); }
+.bracket { color: var(--accent-cyan); }
