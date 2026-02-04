@@ -1,30 +1,33 @@
 <footer class="footer">
-  <div class="footer-content">
-    <div class="footer-section">
-      <h3>Aras Dizici</h3>
-      <p>Full Stack Web Developer</p>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Aras Dizici</h3>
+        <p>Full Stack Web Developer</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Hızlı Linkler</h4>
+        <ul>
+          <li><a routerLink="/">Anasayfa</a></li>
+          <li><a routerLink="/projects">Projeler</a></li>
+          <li><a routerLink="/skills">Yetenekler</a></li>
+          <li><a routerLink="/about">Hakkımda</a></li>
+          <li><a routerLink="/contact">İletişim</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Sosyal Ağlar</h4>
+        <ul class="social-links">
+          <li><a [href]="githubUrl" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a [href]="linkedinUrl" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="footer-section">
-      <h4>Hızlı Linkler</h4>
-      <ul>
-        <li><a href="#">Anasayfa</a></li>
-        <li><a href="#">Projeler</a></li>
-        <li><a href="#">İletişim</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <p>&copy; {{ currentYear }} Aras Dizici. Tüm hakları saklıdır.</p>
     </div>
-
-    <div class="footer-section">
-      <h4>Sosyal Ağlar</h4>
-      <ul class="social-links">
-        <li><a href="https://github.com" target="_blank">GitHub</a></li>
-        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; {{ currentYear }} Aras Dizici. Tüm hakları saklıdır.</p>
   </div>
 </footer>

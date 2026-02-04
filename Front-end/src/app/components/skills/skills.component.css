@@ -1,62 +1,348 @@
 .skills-container {
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 20px;
+  min-height: 100vh;
+  padding-top: 100px;
+  position: relative;
 }
 
-.skills-container h2 {
+/* Section Header */
+.skills-section {
+  padding: 4rem 0;
+}
+
+.section-header {
   text-align: center;
-  margin-bottom: 40px;
-  color: #333;
-  font-size: 2em;
+  margin-bottom: 3rem;
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-family: var(--font-mono);
+  margin-bottom: 1rem;
 }
 
-.skill-category {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-dim);
 }
 
-.skill-category h3 {
-  margin: 0 0 20px 0;
-  font-size: 1.3em;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-  padding-bottom: 10px;
-}
-
-.skill-items {
+/* GitHub Link */
+.github-link-container {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: center;
+  margin-bottom: 4rem;
 }
 
-.skill-item {
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  font-weight: 500;
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  border: 2px solid var(--neon-green);
+  background: transparent;
+  color: var(--neon-green);
+  font-size: 1rem;
+  font-weight: 600;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.skill-item:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+.github-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--neon-green);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.github-link:hover {
+  color: var(--bg-black);
+  box-shadow: 0 0 20px var(--neon-green);
+}
+
+.github-link:hover::before {
+  left: 0;
+}
+
+.github-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.arrow {
+  color: var(--accent-cyan);
+  transition: transform 0.3s ease;
+}
+
+.github-link:hover .arrow {
   transform: translateX(5px);
 }
 
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.skill-category-card {
+  background: var(--bg-dark);
+  border: 1px solid var(--dark-green);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skill-category-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--neon-green);
+  box-shadow: 0 10px 30px rgba(0, 255, 65, 0.2);
+}
+
+/* Category Header */
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--dark-green);
+}
+
+.category-icon {
+  color: var(--accent-cyan);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.category-header h2 {
+  font-size: 1.3rem;
+  color: var(--neon-green);
+  margin: 0;
+  flex: 1;
+}
+
+/* Skills List */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-name {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.skill-percentage {
+  font-size: 0.9rem;
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+}
+
+/* Skill Bar */
+.skill-bar-container {
+  width: 100%;
+}
+
+.skill-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-darker);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s ease-out;
+  position: relative;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.skill-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Projects Info */
+.projects-info {
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg-darker);
+  border: 1px solid var(--dark-green);
+  border-radius: 8px;
+}
+
+.projects-info p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.inline-link {
+  color: var(--neon-green);
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+.inline-link:hover {
+  text-shadow: 0 0 10px var(--neon-green);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .skills-container {
+    padding-top: 80px;
+  }
+
+  .skills-section {
+    padding: 2rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .github-link-container {
+    margin-bottom: 3rem;
+  }
+
+  .github-link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
   .skills-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  
-  .skills-container h2 {
-    font-size: 1.5em;
+
+  .skill-category-card {
+    padding: 1.5rem;
+  }
+
+  .category-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .skill-name {
+    font-size: 0.9rem;
+  }
+
+  .skill-percentage {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .github-link {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .github-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .skill-category-card {
+    padding: 1.2rem;
+  }
+
+  .category-header {
+    margin-bottom: 1rem;
+  }
+
+  .skills-list {
+    gap: 1.2rem;
+  }
+
+  .projects-info {
+    padding: 1.5rem;
+  }
+
+  .projects-info p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .skill-category-card {
+    transition: none;
+  }
+
+  .skill-category-card:active {
+    transform: scale(0.98);
+  }
+
+  .github-link:active {
+    transform: scale(0.95);
   }
 }

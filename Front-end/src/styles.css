@@ -28,6 +28,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-mono);
   background: var(--bg-black);
@@ -35,6 +39,15 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent menu-open body scroll */
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }
 
 /* Scanline Effect */
@@ -108,11 +121,30 @@ a:hover {
   color: var(--neon-green);
 }
 
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.8rem;
+  }
 }
 
 /* Terminal Prompt */
@@ -141,6 +173,19 @@ a:hover {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn {
+    padding: 1rem 1.8rem;
+    font-size: 1.05rem;
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+  }
 }
 
 /* Brackets */
@@ -213,6 +258,13 @@ a:hover {
   box-shadow: 0 0 10px var(--neon-green);
 }
 
+/* Mobile Scrollbar */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+}
+
 /* Selection */
 ::selection {
   background: var(--neon-green);
@@ -234,17 +286,6 @@ a:hover {
   font-size: 1.2rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
-  }
-  
-  body::before {
-    background-size: 100% 4px;
-  }
-}
-
 /* Focus Styles */
 *:focus {
   outline: 2px solid var(--neon-green);
@@ -255,4 +296,39 @@ button:focus,
 a:focus {
   outline: 2px solid var(--neon-green);
   outline-offset: 4px;
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  body::before {
+    animation: none;
+  }
+}
+
+/* Performance Optimizations */
+* {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* Text Rendering */
+body {
+  text-rendering: optimizeLegibility;
+}
+
+/* Image Loading */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
